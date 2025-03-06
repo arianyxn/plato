@@ -3,29 +3,26 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main  # Запускать пайплайн при пуше в ветку main
-  pull_request:
-    branches:
-      - main  # Запускать пайплайн при создании пул-реквеста в ветку main
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Используем последнюю версию Ubuntu
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # Клонируем репозиторий
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18  # Указываем версию Node.js
+          node-version: 18
 
       - name: Install dependencies
-        run: npm install  # Устанавливаем зависимости
+        run: npm install
 
       - name: Run tests
-        run: npm test  # Запускаем тесты (если они есть)
+        run: npm test
 
       - name: Build project
-        run: npm run build  # Собираем проект
+        run: npm run build
