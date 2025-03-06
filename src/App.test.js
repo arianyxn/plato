@@ -4,6 +4,6 @@ import App from './App';
 
 test('отображает заголовок "С возвращением в Plato!"', () => {
   render(<App />);
-  const linkElement = screen.getByText(/С возвращением в Plato!/i);
-  expect(linkElement).toBeInTheDocument();
+  const headingElement = screen.getByRole('heading', { name: /С возвращением в Plato!/i });
+  expect(headingElement).toBeInTheDocument();
 });
